@@ -29,13 +29,7 @@ class FavoriteApiTest extends \WP_UnitTestCase {
 	 */
     public function testShouldGetFavorites() {
 	    $_POST['IdFavorite'] = 1;
-	    $this->expectOutputString(<<<EOT
-[
-    "1",
-    "2"
-]
-EOT
-);
+	    $this->expectOutputString('["1","2"]');
 	    $this->favorites->GetFavorites();
     }
 
@@ -44,13 +38,7 @@ EOT
 	 */
     public function testShouldUpdateFavorites() {
 	    $_POST['IdFavorite'] = 1;
-	    $this->expectOutputString(<<<EOT
-[
-    "1",
-    "2"
-]
-EOT
-);
+	    $this->expectOutputString('["1","2"]');
 	    $this->favorites->UpdateFavorites();
     }
 
