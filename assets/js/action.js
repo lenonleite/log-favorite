@@ -5,14 +5,13 @@
 
 
 function AddFavorite(id){
-    console.log('adda');
     jQuery.ajax({
         type: "POST",
         url: "/wp-admin/admin-ajax.php",
         data: {"action": "update_favorites","IdFavorite":id},
         success: function (response) {
-            jQuery('.star-favorite').attr('src','/wp-content/plugins/log-favorite/assets/img/star-gold.png');
-            jQuery('.star-favorite').closest('a').removeClass('add-favorite').addClass('remove-favorite');
+            jQuery('a[data-id-favorite="' + id + '"] .star-favorite').attr('src','/wp-content/plugins/log-favorite/assets/img/star-gold.png');
+            jQuery('a[data-id-favorite="' + id + '"] .star-favorite').closest('a').removeClass('add-favorite').addClass('remove-favorite');
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(textStatus, errorThrown);
@@ -20,14 +19,13 @@ function AddFavorite(id){
     });
 }
 function RemoveFavorite(id){
-    console.log('del');
     jQuery.ajax({
         type: "POST",
         url: "/wp-admin/admin-ajax.php",
         data: {"action": "remove_favorites","IdFavorite":id},
         success: function (response) {
-            jQuery('.star-favorite').attr('src','/wp-content/plugins/log-favorite/assets/img/star-no-gold.png');
-            jQuery('.star-favorite').closest('a').removeClass('remove-favorite').addClass('add-favorite');
+            jQuery('a[data-id-favorite="' + id + '"] .star-favorite').attr('src','/wp-content/plugins/log-favorite/assets/img/star-no-gold.png');
+            jQuery('a[data-id-favorite="' + id + '"] .star-favorite').closest('a').removeClass('remove-favorite').addClass('add-favorite');
 
         },
         error: function(jqXHR, textStatus, errorThrown) {

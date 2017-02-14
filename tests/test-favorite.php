@@ -38,7 +38,7 @@ class FavoriteTest extends \WP_UnitTestCase {
 
     public function testShouldReturnSuccessfulWhenHookInsertStarAfterTheContent()
     {
-        $stub = $this->getMockBuilder(Favorite::class)->getMock();
+        $stub = $this->getMockBuilder('\LogFavorite\Favorite')->getMock();
         $stub->method('OrganizeFavorites')->willReturn(array(1,2));
 
         $foo = $this->favorites->HookInsertStarAfterTheContent('foo');

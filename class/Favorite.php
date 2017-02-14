@@ -15,13 +15,13 @@ class Favorite {
 		$content .= "<div>";
 
 		$link = "";
-		$link .= "<a href=\"#\" class=\"add-favorite\" data-id-favorite=\"" . get_the_ID() . "\">";
+		$link .= "<a href=\"javascript:void(0)\" class=\"add-favorite\" data-id-favorite=\"" . get_the_ID() . "\">";
 		$link .= "<img class=\"star-favorite\" src=\"" . plugins_url( '/log-favorite/assets/img/star-no-gold.png' ) . "\">" . __( "Favorite" );
 		$link .= "</a>";
 
 		if ( self::CheckExistFavorite( get_the_ID(), self::OrganizeFavorites() ) ) {
 			$link = "";
-			$link .= "<a href=\"#\" class=\"remove-favorite\" data-id-favorite=\"" . get_the_ID() . "\">";
+			$link .= "<a href=\"javascript:void(0)\" class=\"remove-favorite\" data-id-favorite=\"" . get_the_ID() . "\">";
 			$link .= "<img class=\"star-favorite\" src=\"" . plugins_url( '/log-favorite/assets/img/star-gold.png' ) . "\">" . __( "Favorite" );
 			$link .= "</a>";
 		}
