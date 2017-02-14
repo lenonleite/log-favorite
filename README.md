@@ -1,2 +1,2 @@
 # log-favorite
-Plugin of favorites for test in Log company
+WordPress Plugin for favorite posts of - Log company

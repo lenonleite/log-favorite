@@ -1,0 +1,24 @@
+{
+    "name": "lenonleite/log-favorite",
+    "type": "library",
+    "description": "WordPress Plguin for Favorites Posts",
+    "keywords": ["Log","Portugal","Plugin","WordPress","Favorites","posts"],
+    "homepage": "http://www.lenonleite.com.br/en",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lenon Leite",
+            "email": "lenonleite@gmail.com.br",
+            "homepage": "http://www.lenonleite.com.br/en"
+        }
+
+    ],
+    "require": {
+        "php": ">=5.3.9"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "phpunit/phpunit": "^5.6"
+    }
+}
