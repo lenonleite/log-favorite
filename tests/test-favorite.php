@@ -42,7 +42,7 @@ class FavoriteTest extends \WP_UnitTestCase {
         $stub->method('OrganizeFavorites')->willReturn(array(1,2));
 
         $foo = $this->favorites->HookInsertStarAfterTheContent('foo');
-        $this->assertEquals( 'foo<div><a href="#" class="add-favorite" data-id-favorite=""><img class="star-favorite" src="http://example.org/wp-content/plugins/log-favorite/assets/img/star-no-gold.png">Favorite</a></div>', $foo );
+        $this->assertEquals( 'foo<div><a href="javascript:void(0)" class="add-favorite" data-id-favorite=""><img class="star-favorite" src="http://example.org/wp-content/plugins/log-favorite/assets/img/star-no-gold.png">Favorite</a></div>', $foo );
     }
 
     public function testShouldCheckExistFavorite()
