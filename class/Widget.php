@@ -31,7 +31,7 @@ class favorites_widget extends WP_Widget {
         if ( ! empty( $title ) ) {
             echo $args['before_title'] . $title . $args['after_title'];
         }
-        $listOfFavorites = [];
+        $listOfFavorites = array();
         $listOfFavorites = $this->favorites->GetListTitleFavorites();
 
         ?>

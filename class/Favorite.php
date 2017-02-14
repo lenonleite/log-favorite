@@ -78,7 +78,7 @@ class Favorite {
 
 	public static function GetListTitleFavorites() {
 		$listOfFavorites = self::OrganizeFavorites();
-		$titles          = [];
+		$titles          = array();
 		foreach ( $listOfFavorites as $favorite ) {
 			if ( $favorite != "" ) {
 				$titles[] = get_the_title( $favorite );

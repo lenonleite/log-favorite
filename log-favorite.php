@@ -22,16 +22,16 @@ include 'class/Widget.php';
 include 'class/ShortCode.php';
 include 'class/LoadFiles.php';
 
-add_filter( 'the_content', ['\LogFavorite\Favorite', 'HookInsertStarAfterTheContent']);
-add_action( 'wp_ajax_nopriv_get_favorites', ['\LogFavorite\FavoriteApi', 'GetFavorites'] );
-add_action( 'wp_ajax_nopriv_update_favorites', ['\LogFavorite\FavoriteApi', 'UpdateFavorites'] );
-add_action( 'wp_ajax_nopriv_remove_favorites', ['\LogFavorite\FavoriteApi', 'RemoveFavorites'] );
-add_action( 'wp_ajax_nopriv_get_title_favorites', ['\LogFavorite\FavoriteApi', 'GetTitleFavorites'] );
-add_action( 'wp_ajax_get_favorites', ['\LogFavorite\FavoriteApi', 'GetFavorites'] );
-add_action( 'wp_ajax_update_favorites', ['\LogFavorite\FavoriteApi', 'UpdateFavorites'] );
-add_action( 'wp_ajax_remove_favorites', ['\LogFavorite\FavoriteApi', 'RemoveFavorites'] );
-add_action( 'wp_ajax_get_title_favorites', ['\LogFavorite\FavoriteApi', 'GetTitleFavorites'] );
-add_action( 'wp_enqueue_scripts', ['\LogFavorite\LoadFiles', 'load'] );
+add_filter( 'the_content', array('\LogFavorite\Favorite', 'HookInsertStarAfterTheContent'));
+add_action( 'wp_ajax_nopriv_get_favorites', array('\LogFavorite\FavoriteApi', 'GetFavorites') );
+add_action( 'wp_ajax_nopriv_update_favorites', array('\LogFavorite\FavoriteApi', 'UpdateFavorites') );
+add_action( 'wp_ajax_nopriv_remove_favorites', array('\LogFavorite\FavoriteApi', 'RemoveFavorites') );
+add_action( 'wp_ajax_nopriv_get_title_favorites', array('\LogFavorite\FavoriteApi', 'GetTitleFavorites') );
+add_action( 'wp_ajax_get_favorites', array('\LogFavorite\FavoriteApi', 'GetFavorites') );
+add_action( 'wp_ajax_update_favorites', array('\LogFavorite\FavoriteApi', 'UpdateFavorites') );
+add_action( 'wp_ajax_remove_favorites', array('\LogFavorite\FavoriteApi', 'RemoveFavorites') );
+add_action( 'wp_ajax_get_title_favorites', array('\LogFavorite\FavoriteApi', 'GetTitleFavorites') );
+add_action( 'wp_enqueue_scripts', array('\LogFavorite\LoadFiles', 'load') );
 
 add_action( 'widgets_init', 'favorites_load_widget' );
-add_shortcode( 'log-favorites', ['\LogFavorite\ShortCode', 'ShowOfFavorites'] );
+add_shortcode( 'log-favorites', array('\LogFavorite\ShortCode', 'ShowOfFavorites') );

@@ -27,7 +27,7 @@ class FavoriteTest extends \WP_UnitTestCase {
 
     }
 
-    public function invokeMethod(&$object, $methodName, array $parameters = [])
+    public function invokeMethod(&$object, $methodName, array $parameters = array())
     {
         $reflection = new \ReflectionClass(get_class($object));
         $method = $reflection->getMethod($methodName);
@@ -39,7 +39,7 @@ class FavoriteTest extends \WP_UnitTestCase {
     public function testShouldReturnSuccessfulWhenHookInsertStarAfterTheContent()
     {
         $stub = $this->getMockBuilder(Favorite::class)->getMock();
-        $stub->method('OrganizeFavorites')->willReturn([1,2]);
+        $stub->method('OrganizeFavorites')->willReturn(array(1,2));
 
         $foo = $this->favorites->HookInsertStarAfterTheContent('foo');
         $this->assertEquals( 'foo<div><a href="#" class="add-favorite" data-id-favorite=""><img class="star-favorite" src="http://example.org/wp-content/plugins/log-favorite/assets/img/star-no-gold.png">Favorite</a></div>', $foo );
@@ -47,19 +47,19 @@ class FavoriteTest extends \WP_UnitTestCase {
 
     public function testShouldCheckExistFavorite()
     {
-        $retorno = $this->invokeMethod($this->favorites, 'CheckExistFavorite', ['param1', ['param1','param2']]);
+        $retorno = $this->invokeMethod($this->favorites, 'CheckExistFavorite', array('param1', array('param1','param2')));
         $this->assertTrue($retorno);
     }
 
     public function testShouldCheckFavoriteNotFound()
     {
-        $retorno = $this->invokeMethod($this->favorites, 'CheckExistFavorite', ['param', ['param1','param2']]);
+        $retorno = $this->invokeMethod($this->favorites, 'CheckExistFavorite', array('param', array('param1','param2')));
         $this->assertFalse($retorno);
     }
     public function testShouldReturnOrganizeFavorites()
     {
         $favorites = $this->favorites->OrganizeFavorites();
-        $this->assertEquals(['foo', 'bar'], $favorites);
+        $this->assertEquals(array('foo', 'bar'), $favorites);
     }
 
     public function testShouldOrganizeEmptyFavorites()
@@ -71,8 +71,8 @@ class FavoriteTest extends \WP_UnitTestCase {
 
 	public function testShouldTransformStringCookieToArray()
 	{
-		$retorno = $this->invokeMethod($this->favorites, 'CookieToArray', ['param,param2']);
-		$this->assertEquals(['param', 'param2'], $retorno);
+		$retorno = $this->invokeMethod($this->favorites, 'CookieToArray', array('param,param2'));
+		$this->assertEquals(array('param', 'param2'), $retorno);
 	}
 
 	public function testShouldSaveCookie()
@@ -82,7 +82,7 @@ class FavoriteTest extends \WP_UnitTestCase {
 
 	public function testShouldConvertArrayToCookieString()
 	{
-		$retorno = $this->invokeMethod($this->favorites, 'ArrayToCookie', [['foo', 'bar']]);
+		$retorno = $this->invokeMethod($this->favorites, 'ArrayToCookie', array(array('foo', 'bar')));
 
 		$this->assertEquals('foo,bar', $retorno);
 	}
